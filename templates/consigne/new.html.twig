@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Consigne{% endblock %}
+
+{% block body %}
+    <h1>Create new Consigne</h1>
+
+    {{ include('consigne/_form.html.twig') }}
+
+    <a href="{{ path('app_consigne_index') }}">back to list</a>
+{% endblock %}
