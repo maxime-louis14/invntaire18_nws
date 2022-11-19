@@ -30,7 +30,12 @@ class ConsigneController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $consigne->setbookingdate(new \DateTime());
+
+            $stock = $consigne->getProduit()->getStock() -1;
+            $consigne->getProduit()->setStock($stock);
+
             $consigneRepository->add($consigne, true);
+            $consigneRepository->save($consigne, true);
 
             return $this->redirectToRoute('app_consigne_index', [], Response::HTTP_SEE_OTHER);
         }
