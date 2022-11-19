@@ -10,6 +10,7 @@
             <tr>
                 {# <th>Id</th> #}
                 <th>Nom</th>
+                <th>Produit</th>
                 <th>Date de prêt</th>
                 <th>Date du rendu</th>
                 <th>Email</th>
@@ -22,6 +23,7 @@
             <tr>
                 {# <td>{{ consigne.id }}</td> #}
                 <td>{{ consigne.name }}</td>
+                <td>{{consigne.Produit}}</td>
                 <td>{{ consigne.bookingdate ? consigne.bookingdate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ consigne.duedate ? consigne.duedate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ consigne.email }}</td>

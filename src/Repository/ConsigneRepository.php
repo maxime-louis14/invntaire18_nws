@@ -30,6 +30,14 @@ class ConsigneRepository extends ServiceEntityRepository
         }
     }
 
+    public function save(Consigne $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }        
+    }
+
     public function remove(Consigne $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -39,28 +47,28 @@ class ConsigneRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Consigne[] Returns an array of Consigne objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Consigne[] Returns an array of Consigne objects
+    */
+   public function findByExampleField($value): array
+   {
+       return $this->createQueryBuilder('c')
+           ->andWhere('c.exampleField = :val')
+           ->setParameter('val', $value)
+           ->orderBy('c.id', 'ASC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
-//    public function findOneBySomeField($value): ?Consigne
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   public function findOneBySomeField($value): ?Consigne
+   {
+       return $this->createQueryBuilder('c')
+           ->andWhere('c.exampleField = :val')
+           ->setParameter('val', $value)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
 }
