@@ -2,7 +2,7 @@ on:
   push:
     branches: [ "Dev" ]
 
-name: Build and test
+name: Build docker
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +28,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/maxime-louis14/inventaire-nws-php:latest
+          tags: ghcr.io/maxime-louis14/inventaire18_nws-php:latest
           target: inventaire 
 
