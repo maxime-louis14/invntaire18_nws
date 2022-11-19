@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 {# <th>Id</th> #}
-                <th>Name</th>
+                <th>Produit</th>
                 <th>Stock</th>
                 <th>actions</th>
             </tr>
@@ -21,17 +21,17 @@
                 <td>{{ produit.name }}</td>
                 <td>{{ produit.stock }}</td>
                 <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                    {# <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a> #}
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_produit_new') }}">Create new</a>
+    <a href="{{ path('app_produit_new') }}">Ajouter un nouveau produit</a>
 {% endblock %}
