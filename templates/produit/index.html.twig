@@ -5,10 +5,10 @@
 {% block body %}
     <h1>Produit index</h1>
 
-    <table class="table">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Name</th>
                 <th>Stock</th>
                 <th>actions</th>
@@ -17,7 +17,7 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
+                {# <td>{{ produit.id }}</td> #}
                 <td>{{ produit.name }}</td>
                 <td>{{ produit.stock }}</td>
                 <td>

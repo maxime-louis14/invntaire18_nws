@@ -28,6 +28,10 @@ class Consigne
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
+    #[ORM\ManyToOne(targetEntity: Produit::class, inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $produit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +93,18 @@ class Consigne
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->produit;
+    }
+
+    public function setProduit(?Produit $produit): self
+    {
+        $this->produit = $produit;
 
         return $this;
     }

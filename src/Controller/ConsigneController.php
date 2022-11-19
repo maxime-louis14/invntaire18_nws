@@ -29,6 +29,7 @@ class ConsigneController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $consigne->setbookingdate(new \DateTime());
             $consigneRepository->add($consigne, true);
 
             return $this->redirectToRoute('app_consigne_index', [], Response::HTTP_SEE_OTHER);

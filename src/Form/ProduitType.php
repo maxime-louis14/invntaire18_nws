@@ -4,16 +4,21 @@ namespace App\Form;
 
 use App\Entity\Produit;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Produit1Type extends AbstractType
+class ProduitType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('stock')
+            ->add('name', TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add('stock',TextType::class, [
+                'label' => 'Quantité'
+            ] )
         ;
     }
 

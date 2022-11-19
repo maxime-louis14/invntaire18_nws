@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
 <!-- CSS only -->
@@ -13,11 +13,31 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href={{ path('app_home') }}>Accueil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ path('app_produit_index') }}>Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={{ path('app_consigne_index') }}>Réservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     {% block body %}
+     
+     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
-    </body>
+</body>
 </html>

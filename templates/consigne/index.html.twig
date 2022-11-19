@@ -8,24 +8,24 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Name</th>
                 <th>Bookingdate</th>
                 <th>Duedate</th>
-                <th>Rendu</th>
                 <th>Email</th>
+                <th>Rendu</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for consigne in consignes %}
             <tr>
-                <td>{{ consigne.id }}</td>
+                {# <td>{{ consigne.id }}</td> #}
                 <td>{{ consigne.name }}</td>
                 <td>{{ consigne.bookingdate ? consigne.bookingdate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ consigne.duedate ? consigne.duedate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ consigne.rendu ? 'Yes' : 'No' }}</td>
                 <td>{{ consigne.email }}</td>
+                <td>{{ consigne.rendu ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a href="{{ path('app_consigne_show', {'id': consigne.id}) }}">show</a>
                     <a href="{{ path('app_consigne_edit', {'id': consigne.id}) }}">edit</a>

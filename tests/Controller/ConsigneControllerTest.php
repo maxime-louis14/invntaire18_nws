@@ -49,6 +49,7 @@ class ConsigneControllerTest extends WebTestCase
             'consigne[duedate]' => 'Testing',
             'consigne[rendu]' => 'Testing',
             'consigne[email]' => 'Testing',
+            'consigne[produit]' => 'Testing',
         ]);
 
         self::assertResponseRedirects('/consigne/');
@@ -65,6 +66,7 @@ class ConsigneControllerTest extends WebTestCase
         $fixture->setDuedate('My Title');
         $fixture->setRendu('My Title');
         $fixture->setEmail('My Title');
+        $fixture->setProduit('My Title');
 
         $this->repository->add($fixture, true);
 
@@ -85,6 +87,7 @@ class ConsigneControllerTest extends WebTestCase
         $fixture->setDuedate('My Title');
         $fixture->setRendu('My Title');
         $fixture->setEmail('My Title');
+        $fixture->setProduit('My Title');
 
         $this->repository->add($fixture, true);
 
@@ -96,6 +99,7 @@ class ConsigneControllerTest extends WebTestCase
             'consigne[duedate]' => 'Something New',
             'consigne[rendu]' => 'Something New',
             'consigne[email]' => 'Something New',
+            'consigne[produit]' => 'Something New',
         ]);
 
         self::assertResponseRedirects('/consigne/');
@@ -107,6 +111,7 @@ class ConsigneControllerTest extends WebTestCase
         self::assertSame('Something New', $fixture[0]->getDuedate());
         self::assertSame('Something New', $fixture[0]->getRendu());
         self::assertSame('Something New', $fixture[0]->getEmail());
+        self::assertSame('Something New', $fixture[0]->getProduit());
     }
 
     public function testRemove(): void
@@ -121,6 +126,7 @@ class ConsigneControllerTest extends WebTestCase
         $fixture->setDuedate('My Title');
         $fixture->setRendu('My Title');
         $fixture->setEmail('My Title');
+        $fixture->setProduit('My Title');
 
         $this->repository->add($fixture, true);
 
