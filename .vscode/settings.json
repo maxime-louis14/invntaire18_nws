@@ -1,3 +1,6 @@
 {
-  "symfony-vscode.phpExecutablePath": "C:laragon\binphpphp-7.4.19-Win32-vc15-x64"
+  "symfony-vscode.phpExecutablePath": "C:laragon\binphpphp-7.4.19-Win32-vc15-x64",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/MAKA/Documents/GitHub/invntaire18_nws/.github/workflows/deploy.yml"
+  }
 }
