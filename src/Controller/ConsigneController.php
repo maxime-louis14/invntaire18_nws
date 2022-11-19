@@ -61,7 +61,12 @@ class ConsigneController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Je doit comparéer new et olde form
+            $stock = $rendu->getProduit()->getStock() +1;
+            $consigne->getProduit()->setRendu($stock);
+
             $consigneRepository->add($consigne, true);
+            $consigneRepository->save($consigne, true);
 
             return $this->redirectToRoute('app_consigne_index', [], Response::HTTP_SEE_OTHER);
         }
