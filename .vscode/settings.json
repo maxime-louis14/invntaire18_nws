@@ -1,6 +1,6 @@
 {
-  "symfony-vscode.phpExecutablePath": "",
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/MAKA/Documents/GitHub/invntaire18_nws/.github/workflows/deploy.yml"
-  }
+  },
+  "symfony-vscode.phpExecutablePath": "C:\\Users\\MAKA\\Documents\\php"
 }
