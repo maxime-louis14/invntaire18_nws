@@ -25,7 +25,6 @@ class ConsigneType extends AbstractType
                'widget' => 'single_text',
                'label' => 'Date du rendu',
            ))
-
             ->add('produit')
             ->add('rendu')
             ->add('rendu');
