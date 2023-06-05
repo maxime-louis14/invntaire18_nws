@@ -1,19 +1,28 @@
 name: deploy
 
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      - 'dev'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - run: docker compose up -d 
+      - run: docker compose exec php composer install
+      - run: docker compose exec php symfony console doctrine:database:create --env=test
+      - run: docker compose exec php symfony console doctrine:schema:update --env=test --force
+      - run: docker compose exec php php bin/phpunit
       - run: |
           mkdir -p ~/.ssh
           ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
+
       - uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}"cd inventaire-nws-php & git pull"
-      - run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}"cd inventaire-nws-php & docker compose up -d --build --force-recreate"
-
+      - run: ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_HOST }} "cd inventaire_projet_octobre && git pull"
+      - run: ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_HOST }} "cd inventaire_projet_octobre && docker compose up -d --build --force-recreate"
